@@ -1,19 +1,10 @@
 const express = require(`express`);
 const path = require(`path`);
-const moment = require(`moment`);
+const logger = require(`./midleware/logger`);
 
 const members = require(`./Members`);
 
 const app = express();
-
-const logger = (req, res, next) => {
-    console.log(
-        `${req.portocol}://${req.get(`host`)}${
-            req.originalUrl
-        }: ${moment().format()}`
-    );
-    next();
-};
 
 // Init middleware
 app.use(logger);
