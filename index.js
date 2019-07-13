@@ -11,8 +11,13 @@ app.use(logger);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.get(`/`,(req, res) => {
+    //res.send(`<h1>ようこそ</h1>`);
+    res.sendFile(path.join(__dirname, `public`, `index.html`));
+});
+
 app.get(/^(.+)$/, function(req, res) {
-    //console.log(path.join(__dirname, `./public/`, req.params[0]+`.html`));
+    console.log(path.join(__dirname, `./public/`, req.params[0]+`.html`));
     try {
         if(fs.statSync(path.join(__dirname, `./public/`, req.params[0]
         +`.html`)).isFile()) {
