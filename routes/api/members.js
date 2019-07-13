@@ -4,7 +4,7 @@ const router = express.Router();
 //Inport Json
 const members = require(`../../Members`);
 
-/// Gets All Members
+/// Gets All Members 
 router.get(`/`, (req, res) => res.json(members));
 
 // Get Single Member
